@@ -60,15 +60,15 @@ for it in trans_dict:
         trans_out += trans_dict[it][it_i]['sent']
     print(clas_0, clas_1, clas_2)
     print(trans_out - trans_in)
-    if clas_2 and clas_1 and (not clas_0):
+    if (clas_2 and clas_1 and (not clas_0)) or ((clas_2 or clas_1) and (not clas_0)):
         clast_2_1_info[0] += clast_2_temp_inf[1]
         clast_2_1_info[1] += clast_1_temp_inf[1]
         clast_2_1_info[2] += abs(trans_in - trans_out)
-    elif clas_2 and clas_0 and (not clas_1):
+    elif (clas_2 and clas_0 and (not clas_1)) or ((clas_2 or clas_0) and (not clas_1)):
         clast_2_0_info[0] += clast_2_temp_inf[1]
         clast_2_0_info[1] += clast_0_temp_inf[1]
         clast_2_0_info[2] += abs(trans_in - trans_out)
-    elif clas_1 and clas_0 and (not clas_2):
+    elif (clas_1 and clas_0 and (not clas_2)) or ((clas_1 or clas_0) and (not clas_2)):
         clast_1_0_info[0] += clast_1_temp_inf[1]
         clast_1_0_info[1] += clast_0_temp_inf[1]
         clast_1_0_info[2] += abs(trans_in - trans_out)
