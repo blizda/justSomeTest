@@ -34,8 +34,8 @@ clast_2_0_info = [Decimal(0), Decimal(0), Decimal(0)]
 clast_1_0_info = [Decimal(0), Decimal(0), Decimal(0)]
 for it in trans_dict:
     print(trans_dict[it])
-    tranz_in = Decimal(0)
-    tranz_out = Decimal(0)
+    trans_in = Decimal(0)
+    trans_out = Decimal(0)
     clas_0 = False
     clas_1 = False
     clas_2 = False
@@ -56,22 +56,22 @@ for it in trans_dict:
             clas_0 = True
             clast_0_temp_inf[0] += trans_dict[it][it_i]['received']
             clast_0_temp_inf[1] += trans_dict[it][it_i]['sent']
-        tranz_in += trans_dict[it][it_i]['received']
-        tranz_out += trans_dict[it][it_i]['sent']
+        trans_in += trans_dict[it][it_i]['received']
+        trans_out += trans_dict[it][it_i]['sent']
     print(clas_0, clas_1, clas_2)
-    print(tranz_out - tranz_in)
+    print(trans_out - trans_in)
     if clas_2 and clas_1 and (not clas_0):
         clast_2_1_info[0] += clast_2_temp_inf[1]
         clast_2_1_info[1] += clast_1_temp_inf[1]
-        clast_2_1_info[2] += abs(tranz_in - tranz_out)
+        clast_2_1_info[2] += abs(trans_in - trans_out)
     elif clas_2 and clas_0 and (not clas_1):
         clast_2_0_info[0] += clast_2_temp_inf[1]
         clast_2_0_info[1] += clast_0_temp_inf[1]
-        clast_2_0_info[2] += abs(tranz_in - tranz_out)
+        clast_2_0_info[2] += abs(trans_in - trans_out)
     elif clas_1 and clas_0 and (not clas_2):
         clast_1_0_info[0] += clast_1_temp_inf[1]
         clast_1_0_info[1] += clast_0_temp_inf[1]
-        clast_1_0_info[2] += abs(tranz_in - tranz_out)
+        clast_1_0_info[2] += abs(trans_in - trans_out)
 print([x / Decimal(100000000) for x in clast_2_1_info])
 print([x / Decimal(100000000) for x in clast_2_0_info])
 print([x / Decimal(100000000) for x in clast_1_0_info])
