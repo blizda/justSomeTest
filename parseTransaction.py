@@ -18,7 +18,7 @@ with open('address_clust.csv', 'r', encoding='utf-8') as f1, open('address_stats
     i = 0
     for row in csv.reader(f1, delimiter=","):
         if i != 0:
-            clast_dict[row[0]] = row[1]
+            clast_dict[row[0]] = int(row[1])
         i += 1
     i = 0
     for row in csv.reader(f2, delimiter=","):
@@ -43,11 +43,11 @@ for it in trans_dict:
     clast_2_temp_inf = [Decimal(0), Decimal(0)]
     for it_i in trans_dict[it]:
         if it_i in clast_dict:
-            if clast_dict[it_i] == '1':
+            if clast_dict[it_i] == 1:
                 clas_1 = True
                 clast_1_temp_inf[0] += trans_dict[it][it_i]['received']
                 clast_1_temp_inf[1] += trans_dict[it][it_i]['sent']
-            elif clast_dict[it_i] == '2':
+            elif clast_dict[it_i] == 2:
                 clas_2 = True
                 clast_2_temp_inf[0] += trans_dict[it][it_i]['received']
                 clast_2_temp_inf[1] += trans_dict[it][it_i]['sent']
