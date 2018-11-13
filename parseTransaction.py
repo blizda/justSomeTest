@@ -33,7 +33,6 @@ clast_2_1_info = [Decimal(0), Decimal(0), Decimal(0)]
 clast_2_0_info = [Decimal(0), Decimal(0), Decimal(0)]
 clast_1_0_info = [Decimal(0), Decimal(0), Decimal(0)]
 for it in trans_dict:
-    print(trans_dict[it])
     trans_in = Decimal(0)
     trans_out = Decimal(0)
     clas_0 = False
@@ -58,8 +57,6 @@ for it in trans_dict:
             clast_0_temp_inf[1] += trans_dict[it][it_i]['sent']
         trans_in += trans_dict[it][it_i]['received']
         trans_out += trans_dict[it][it_i]['sent']
-    print(clas_0, clas_1, clas_2)
-    print(trans_out - trans_in)
     if (clas_2 and clas_1 and (not clas_0)) or ((clas_2 or clas_1) and (not clas_0)):
         clast_2_1_info[0] += clast_2_temp_inf[1]
         clast_2_1_info[1] += clast_1_temp_inf[1]
