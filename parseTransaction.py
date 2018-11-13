@@ -48,7 +48,7 @@ for it in trans_dict:
                 clas_1 = True
                 clast_1_temp_inf[0] += trans_dict[it][it_i]['received']
                 clast_1_temp_inf[1] += trans_dict[it][it_i]['sent']
-            if clast_dict[it_i] == '2':
+            elif clast_dict[it_i] == '2':
                 clas_2 = True
                 clast_2_temp_inf[0] += trans_dict[it][it_i]['received']
                 clast_2_temp_inf[1] += trans_dict[it][it_i]['sent']
